@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GeoIndexDBScanTest
+public class StrTreeIndexDBScanTest
 {
 
     private static List<LatLng> data;
@@ -44,7 +44,7 @@ public class GeoIndexDBScanTest
     @Test
     public void testDBScanWithGeoIndexFindsOneCluster()
     {
-        GeoIndex gi = new GeoIndex(data);
+        StrTreeIndex gi = new StrTreeIndex(data);
 
         DBScanner<LatLng> dbScanner = new DBScanner<>(epsilon, minpts, data, gi);
         List<Cluster<LatLng>> clusters = dbScanner.scan();
@@ -55,7 +55,7 @@ public class GeoIndexDBScanTest
     @Test
     public void testDBScanWithGeoIndexClustersPointsCorrectly()
     {
-        GeoIndex gi = new GeoIndex(data);
+        StrTreeIndex gi = new StrTreeIndex(data);
 
         DBScanner<LatLng> dbScanner = new DBScanner<>(epsilon, minpts, data, gi);
         List<Cluster<LatLng>> clusters = dbScanner.scan();
