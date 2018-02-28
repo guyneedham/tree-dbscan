@@ -18,14 +18,13 @@ public class NaiveTree extends AbstractTree<NaivePoint>
     public List<NaivePoint> query(NaivePoint point, double distance)
     {
         List<NaivePoint> neighbours = new ArrayList<>();
-        for (NaivePoint p : points)
-        {
+        points.forEach(p -> {
             double d = p.getDistance(point);
             if (d <= distance)
             {
                 neighbours.add(p);
             }
-        }
+        });
         return neighbours;
     }
 

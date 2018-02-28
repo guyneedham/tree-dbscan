@@ -6,7 +6,7 @@
         <artifactId>treedbscan</artifactId>
         <version>0.1</version>
     </parent>
-    <artifactId>performance</artifactId>
+    <artifactId>naive</artifactId>
 
     <dependencies>
         <dependency>

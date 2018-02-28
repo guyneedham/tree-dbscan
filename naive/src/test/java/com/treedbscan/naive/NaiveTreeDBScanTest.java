@@ -69,4 +69,26 @@ public class NaiveTreeDBScanTest
         Assert.assertEquals(false, cluster.contains(f));
     }
 
+    @Test
+    public void testDBScanWithNaiveTreeHandlesDensityReachablePoint()
+    {
+        NaivePoint g = new NaivePoint(0.6, 0.0);
+        List<NaivePoint> xs = new ArrayList<>();
+        xs.add(a);
+        xs.add(b);
+        xs.add(c);
+        xs.add(d);
+        xs.add(e);
+        xs.add(f);
+        xs.add(g);
+
+        NaiveTree tree = new NaiveTree(xs);
+        DBScanner<NaivePoint> dbScanner = new DBScanner<>(epsilon, minpts, xs, tree);
+
+        List<Cluster<NaivePoint>> clusters = dbScanner.scan();
+        Cluster<NaivePoint> cluster = clusters.get(0);
+        Assert.assertEquals(true, cluster.contains(a));
+        Assert.assertEquals(true, cluster.contains(g));
+    }
+
 }

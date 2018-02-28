@@ -47,10 +47,7 @@ public class DBScanner<P extends AbstractPoint>
         cluster.add(point);
         List<P> neighbours = tree.query(point, epsilon);
 
-        for (P neighbour : neighbours)
-        {
-            process(neighbour, cluster);
-        }
+        neighbours.forEach(neighbour -> process(neighbour, cluster));
 
         return cluster;
     }
